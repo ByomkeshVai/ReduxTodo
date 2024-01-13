@@ -13,9 +13,13 @@ import { setFiltering } from "@/redux/features/todoSlice";
 import { useAppDispatch } from "@/redux/features/hook/reduxHook";
 
 const TodoFilter = () => {
-  const [position, setPosition] = useState("");
-
+  const [priorityFilter, setPriorityFilter] = useState("");
   const dispatch = useAppDispatch();
+
+  const handleFilterChange = (value: string) => {
+    setPriorityFilter(value);
+    dispatch(setFiltering(value));
+  };
 
   return (
     <DropdownMenu>
@@ -27,7 +31,10 @@ const TodoFilter = () => {
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Filter by priority</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+        <DropdownMenuRadioGroup
+          value={priorityFilter}
+          onValueChange={handleFilterChange}
+        >
           <DropdownMenuRadioItem value="high">High</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="medium">Medium</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="low">Low</DropdownMenuRadioItem>
