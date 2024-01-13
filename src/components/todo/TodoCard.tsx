@@ -1,16 +1,24 @@
-import { Button } from '../ui/button';
-import { removeTodo } from '@/redux/features/todoSlice';
+import { MouseEventHandler } from "react";
+import { Button } from "../ui/button";
+import { removeTodo } from "@/redux/features/todoSlice";
 
 type TTodoCardProps = {
   id: string;
   title: string;
+  priority: string;
   description: string;
   isCompleted?: boolean;
 };
 
-const TodoCard = ({ title, description, id, isCompleted }: TTodoCardProps) => {
+const TodoCard = ({
+  title,
+  description,
+  id,
+  isCompleted,
+  priority,
+}: TTodoCardProps) => {
   const toggleState = () => {
-    console.log('Toggle');
+    console.log("Toggle");
   };
 
   return (
@@ -31,6 +39,7 @@ const TodoCard = ({ title, description, id, isCompleted }: TTodoCardProps) => {
         )}
       </div>
       <p>{description}</p>
+      <p>{priority}</p>
       <div className="space-x-5">
         <Button className="bg-red-500">
           <svg
