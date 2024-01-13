@@ -36,11 +36,14 @@ export const todoSlice = createSlice({
         );
       }
     },
-    setFiltering: (state, action) => {
-      const task = state.todos.filter((todo) => todo.id !== action.payload);
+    setFiltering: (state, action: PayloadAction<string>) => {
+      state.todos = state.todos.filter(
+        (todo) => todo.priority === action.payload
+      );
     },
   },
 });
 
-export const { addTodo, removeTodo, toggleCompleted } = todoSlice.actions;
+export const { addTodo, removeTodo, toggleCompleted, setFiltering } =
+  todoSlice.actions;
 export default todoSlice.reducer;

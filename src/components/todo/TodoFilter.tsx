@@ -9,12 +9,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-// import { useAppDispatch } from "@/redux/features/hook/reduxHook";
+import { setFiltering } from "@/redux/features/todoSlice";
+import { useAppDispatch } from "@/redux/features/hook/reduxHook";
 
 const TodoFilter = () => {
-  const [position, setPosition] = useState("bottom");
+  const [position, setPosition] = useState("");
 
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <DropdownMenu>
