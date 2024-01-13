@@ -37,10 +37,7 @@ export const todoSlice = createSlice({
       }
     },
     setFiltering: (state, action: PayloadAction<string>) => {
-      const priorityFilter = action.payload;
-      state.todos = state.todos.filter(
-        (todo) => todo.priority === priorityFilter
-      );
+      state.todos.find((todo) => todo.priority === action.payload);
     },
   },
 });

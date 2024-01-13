@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { Button } from "../ui/button";
 import { removeTodo, toggleCompleted } from "@/redux/features/todoSlice";
 import { useAppDispatch } from "@/redux/features/hook/reduxHook";
