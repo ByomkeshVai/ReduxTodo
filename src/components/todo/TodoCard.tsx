@@ -1,6 +1,7 @@
 import { MouseEventHandler } from "react";
 import { Button } from "../ui/button";
-import { removeTodo } from "@/redux/features/todoSlice";
+import { removeTodo, toggleCompleted } from "@/redux/features/todoSlice";
+import { useAppDispatch } from "@/redux/features/hook/reduxHook";
 
 type TTodoCardProps = {
   id: string;
@@ -17,8 +18,10 @@ const TodoCard = ({
   isCompleted,
   priority,
 }: TTodoCardProps) => {
+  const dispatch = useAppDispatch();
+
   const toggleState = () => {
-    console.log("Toggle");
+    dispatch(toggleCompleted(id));
   };
 
   return (
@@ -41,7 +44,7 @@ const TodoCard = ({
       <p>{description}</p>
       <p>{priority}</p>
       <div className="space-x-5">
-        <Button className="bg-red-500">
+        <Button className="bg-red-500" onClick={() => dispatch(removeTodo(id))}>
           <svg
             className="size-5"
             fill="none"

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Button } from '../ui/button';
+import { useState } from "react";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,10 +8,14 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
+} from "../ui/dropdown-menu";
+// import { useAppDispatch } from "@/redux/features/hook/reduxHook";
 
 const TodoFilter = () => {
-  const [position, setPosition] = useState('bottom');
+  const [position, setPosition] = useState("bottom");
+
+  // const dispatch = useAppDispatch();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
